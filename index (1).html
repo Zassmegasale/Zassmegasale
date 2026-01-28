@@ -112,3 +112,17 @@ box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:999;">💬 WhatsApp</a>
 
 </body>
 </html>
+<script>
+  function buyNow(productName, price, imageUrl) {
+    const phone = "918779298853";
+    const message =
+      `Hello Zass Mega Sale,%0A%0A` +
+      `I want to buy this product:%0A` +
+      `📦 Product: ${productName}%0A` +
+      `💰 Price: ${price}%0A%0A` +
+      `🖼 Product Image:%0A${imageUrl}%0A%0A` +
+      `Please confirm availability.`;
+
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+  }
+</script>
