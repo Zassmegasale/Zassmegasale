@@ -128,6 +128,10 @@ footer {
 <a href="#contact">Contact</a>
 </nav>
 
+  <button onclick="openOrderPopup()" class="btn">
+🛒 Order on WhatsApp
+</button>
+
 <section id="home" class="hero">
 <h2>Big Savings on Quality Home Products</h2>
 <p>100% Melamine Crockery, Home Essentials & Cleaning Products at Factory Prices</p>
@@ -210,15 +214,66 @@ Buy Now on WhatsApp
 </section>
 
 <footer>
+<footer>
 <p>© 2026 Zass Mega Sale. All Rights Reserved.</p>
+
+<div style="margin-top:10px;">
+  <a href="https://www.instagram.com/zass_megasalefest
+" target="_blank" style="margin:0 10px;">📸 Instagram</a>
+  <a href="https://www.facebook.com/zass_megasalefest
+" target="_blank" style="margin:0 10px;">📘 Facebook</a>
+</div>
 </footer>
+
 
 <a href="https://wa.me/918779298853"
 style="position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;
 padding:14px 18px;border-radius:50px;font-weight:bold;text-decoration:none;
 box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:999;">💬 WhatsApp</a>
 
+  <!-- WhatsApp Order Popup -->
+<div id="orderPopup" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000;">
+  <div style="background:#fff; max-width:400px; margin:8% auto; padding:20px; border-radius:10px; position:relative;">
+    
+    <h3 style="text-align:center;">Place Order on WhatsApp</h3>
+
+    <input id="custName" type="text" placeholder="Your Name" style="width:100%;padding:10px;margin:8px 0;">
+    <input id="productName" type="text" placeholder="Product Name" style="width:100%;padding:10px;margin:8px 0;">
+    <input id="quantity" type="number" placeholder="Quantity" style="width:100%;padding:10px;margin:8px 0;">
+
+    <button onclick="sendOrder()" class="btn" style="width:100%;">Send to WhatsApp</button>
+
+    <button onclick="closeOrderPopup()" 
+      style="position:absolute;top:10px;right:15px;border:none;background:none;font-size:20px;cursor:pointer;">✖</button>
+  </div>
+</div>
+
+  <script>
+function openOrderPopup() {
+  document.getElementById("orderPopup").style.display = "block";
+}
+
+function closeOrderPopup() {
+  document.getElementById("orderPopup").style.display = "none";
+}
+
+function sendOrder() {
+  let name = document.getElementById("custName").value;
+  let product = document.getElementById("productName").value;
+  let qty = document.getElementById("quantity").value;
+
+  if (!name || !product || !qty) {
+    alert("Please fill all details");
+    return;
+  }
+
+  let msg = `Hello Zass Mega Sale,%0A%0AName: ${name}%0AProduct: ${product}%0AQuantity: ${qty}`;
+  window.open(`https://wa.me/918779298853?text=${msg}`, "_blank");
+}
+</script>
+
 </body>
 </html>
+
 
 
